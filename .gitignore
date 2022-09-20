@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/nixOag-vue-portal/node_modules/
+/nixOag-vue-portal/out/
