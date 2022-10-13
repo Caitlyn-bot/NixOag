@@ -24,7 +24,7 @@ app.on('ready',() => {
             preload: path.join(__dirname, 'preload.js'),
         },});
     //加载页面
-    mainWindow.loadURL('http://localhost:5173/');
+    mainWindow.loadURL('http://localhost:8080/');
     // 设置监听关闭窗口事件
     mainWindow.on('closed',() => {
         mainWindow = null;
