@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import List from '@/components/user/List'
+import Home from '@/components/Home'
+import Login from '@/components/Login'
+import UserList from '@/components/user/UserList'
+import role from '@/components/user/Role'
 
 Vue.use(Router)
 
@@ -9,13 +11,38 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
-      component: Index
+      redirect: '/login',
+      component: Login,
+      hidden:true
     },
     {
-      path: '/users',
-      name: 'users',
-      component: List
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      iconClass: 'el-icon-s-home',
+      hidden:true
+    },
+    {
+      path: '/home',
+      name: '权限管理',
+      redirect: '/home/user',
+      component: Home,
+      iconClass: 'el-icon-user',
+      children: [
+        {
+          path:'/home/user',
+          name:'用户管理',
+          iconClass: 'fa fa-list',
+          component: UserList
+        },
+        {
+          path:'/home/roles',
+          name:'角色管理',
+          iconClass: 'fa fa-list',
+          component: role
+        }
+      ]
     }
+
   ]
 })

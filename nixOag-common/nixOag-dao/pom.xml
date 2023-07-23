@@ -3,19 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>nixOag-application</artifactId>
+        <artifactId>nixOag-common</artifactId>
         <groupId>com.zzw</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nixOag-manager-web</artifactId>
+    <artifactId>nixOag-dao</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.zzw</groupId>
-            <artifactId>nixOag-web</artifactId>
+            <artifactId>nixOag-base</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+
 </project>

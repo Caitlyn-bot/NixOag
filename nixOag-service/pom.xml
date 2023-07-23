@@ -11,5 +11,16 @@
 
     <artifactId>nixOag-service</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.zzw</groupId>
+            <artifactId>nixOag-dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zzw</groupId>
+            <artifactId>nixOag-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

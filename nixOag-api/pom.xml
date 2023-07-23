@@ -11,5 +11,6 @@
 
     <artifactId>nixOag-api</artifactId>
 
-
+    <dependencies>
+    </dependencies>
 </project>

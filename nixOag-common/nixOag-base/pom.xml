@@ -11,5 +11,8 @@
 
     <artifactId>nixOag-base</artifactId>
 
+    <dependencies>
+
+    </dependencies>
 
 </project>
