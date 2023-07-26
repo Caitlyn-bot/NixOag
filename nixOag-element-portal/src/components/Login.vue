@@ -20,6 +20,14 @@
         ]">
           <el-input type="password" v-model="form.password"></el-input>
         </el-form-item>
+        <el-form-item label="验证码" prop="verifyCode">
+          <el-input v-model="form.verifyCode"></el-input>
+          <el-image :src="verifySrc" @click="getCode">
+            <div slot="placeholder" class="image-slot">
+              加载中<span class="dot">...</span>
+            </div>
+          </el-image>
+        </el-form-item>
         <el-form-item label="">
           <el-button type="primary" @click="login('form')">Login</el-button>
         </el-form-item>
@@ -38,35 +46,59 @@ export default {
     return{
       form: {
         userName: 'zzw123',
-        password: 'zzw123'
-      }
+        password: 'zzw123',
+        verifyCode: ''
+      },
+      verifySrc: 'http://localhost:8081/nixOag/login/generator'
     }
   },
   methods: {
+    getCode() { //点击的时候就图片就请求 图片就换了
+      let randomNum = parseInt(i, 10);
+      this.random = randomNum;
+      this.verifySrc = 'http://localhost:8081/nixOag/login/generator' + randomNum;
+    },
     login(form) {
       this.$refs[form].validate((validate) => {
         if (validate) {
           console.log(this.form);
           request({
-            url: '/login/userLogin',
-            method: 'post',
-            data: this.form
-          }).then( response => {
-              console.log(response.data.flag);
-              if (response.data.flag) {
-                setToken('username', response.data.userName);
-                this.$message({message: response.data.message, type: 'success'});
-                this.$router.push('/home');
-              }
-            })
+            url: '/login/verify',
+            method: 'get',
+            params: {verifyCode: this.form.verifyCode}
+          }).then(response => {
+            console.log(response.data);
+            alert(response.data);
+            if (response.data) {
+              this.loginVerify();
+            }
+          })
             .catch(err => {
               console.log(err);
             });
+
         }
         else {
           console.error(this.form)
         }
       })
+    },
+    loginVerify() {
+      request({
+        url: '/login/userLogin',
+        method: 'post',
+        data: this.form
+      }).then( response => {
+        console.log(response.data.flag);
+        if (response.data.flag) {
+          setToken('username', response.data.userName);
+          this.$message({message: response.data.message, type: 'success'});
+          this.$router.push('/home');
+        }
+      })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 }
