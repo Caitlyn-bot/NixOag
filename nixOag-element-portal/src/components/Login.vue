@@ -68,9 +68,14 @@ export default {
             params: {verifyCode: this.form.verifyCode}
           }).then(response => {
             console.log(response.data);
-            alert(response.data);
             if (response.data) {
               this.loginVerify();
+            }
+            else {
+              this.$message({
+                message: '验证码错误',
+                type: 'warning'
+              });
             }
           })
             .catch(err => {
