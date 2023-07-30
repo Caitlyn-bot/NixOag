@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.zzw.nixOag.bean.common.BaseEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @ApiModel(description = "任务")
 @TableName("NIX_TASK")
-public class NixTask {
+public class NixTask extends BaseEntity {
 
     @TableId(type = IdType.AUTO)
     @TableField("TASK_ID")

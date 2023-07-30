@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/components/Home'
-import Login from '@/components/Login'
-import UserList from '@/components/user/UserList'
-import role from '@/components/user/Role'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/components/Home';
+import Login from '@/components/Login';
+import User from '@/components/user/User';
+import Role from '@/components/user/Role';
 
 Vue.use(Router)
 
@@ -25,7 +25,7 @@ export default new Router({
     {
       path: '/home',
       name: '权限管理',
-      redirect: '/home/user',
+      // redirect: '/home/user',
       component: Home,
       iconClass: 'el-icon-user',
       children: [
@@ -33,13 +33,13 @@ export default new Router({
           path:'/home/user',
           name:'用户管理',
           iconClass: 'fa fa-list',
-          component: UserList
+          component: User
         },
         {
           path:'/home/roles',
           name:'角色管理',
           iconClass: 'fa fa-list',
-          component: role
+          component: Role
         }
       ]
     }

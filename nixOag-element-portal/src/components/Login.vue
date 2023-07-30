@@ -22,7 +22,7 @@
         </el-form-item>
         <el-form-item label="验证码" prop="verifyCode">
           <el-input v-model="form.verifyCode"></el-input>
-          <el-image :src="verifySrc" @click="getCode">
+          <el-image :src="verifySrc" @click="refreshCode">
             <div slot="placeholder" class="image-slot">
               加载中<span class="dot">...</span>
             </div>
@@ -53,10 +53,9 @@ export default {
     }
   },
   methods: {
-    getCode() { //点击的时候就图片就请求 图片就换了
-      let randomNum = parseInt(i, 10);
-      this.random = randomNum;
-      this.verifySrc = 'http://localhost:8081/nixOag/login/generator' + randomNum;
+    refreshCode() { //点击的时候就图片就请求 图片就换了
+      let randomNum = Math.random();
+      this.verifySrc = 'http://localhost:8081/nixOag/login/generator?random=' + randomNum;
     },
     login(form) {
       this.$refs[form].validate((validate) => {

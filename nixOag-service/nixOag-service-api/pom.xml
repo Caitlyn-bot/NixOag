@@ -9,22 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nixOag-service</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>nixOag-service-impl</module>
-    </modules>
+    <artifactId>nixOag-service-api</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.zzw</groupId>
-            <artifactId>nixOag-dao</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zzw</groupId>
-            <artifactId>nixOag-util</artifactId>
-            <version>${project.version}</version>
+            <artifactId>nixOag-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

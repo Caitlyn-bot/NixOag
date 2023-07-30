@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzw.nixOag.dao.NixTaskDAO">
+
+    <insert id="addTask">
+        insert into task
+        (task_type, task_level, task_reward, task_status, task_create_user_id,
+        task_created_date, task_finished_date, task_content)
+        values(#{taskType}, #{taskLevel}, #{taskReward}, #{taskStatus}, #{taskCreateUserId},
+        #{taskCreatedDate}, #{taskFinishedDate}, #{taskContent})
+    </insert>
+</mapper>
