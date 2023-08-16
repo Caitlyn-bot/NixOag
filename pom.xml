@@ -6,7 +6,6 @@
     <modules>
         <module>nixOag-common</module>
         <module>nixOag-service</module>
-        <module>nixOag-api</module>
         <module>nixOag-application</module>
         <module>nixOag-common</module>
         <module>nixOag-web</module>

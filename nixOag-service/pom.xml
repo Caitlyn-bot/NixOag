@@ -12,6 +12,7 @@
     <artifactId>nixOag-service</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>nixOag-service-api</module>
         <module>nixOag-service-impl</module>
     </modules>
 
